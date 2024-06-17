@@ -43,7 +43,7 @@ const Cart = () => {
                                     <td>1000</td>
                                     <td>
                                         <button className='btn-plus'> + </button>
-                                        <input type="text" />
+                                        <span className='quantity-val'> 1 </span>
                                         <button className='btn-minus'> - </button>
                                     </td>
                                     <td>1000</td>
