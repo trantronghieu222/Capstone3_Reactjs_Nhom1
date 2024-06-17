@@ -15,6 +15,7 @@ import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-ro
 import HeaderHome from './layout/HeaderHome'
 import Home from './page/Home'
 import Search from './page/Search'
+import Cart from './page/Cart'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route index element={<Home></Home>}></Route>
           <Route path='home' element={<Home></Home>}></Route>
           <Route path='search' element={<Search></Search>}></Route>
+          <Route path='cart' element={<Cart></Cart>}></Route>
         </Route>
       </Routes>
     </HistoryRouter>

@@ -30,11 +30,19 @@
         .item__btn button:nth-child(1) {
             @include styleButton ($bg-button-2, $color-black-1, 10px 15px, none, none);
             font-weight: 500;
+            &:hover{
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
         }
     
         .item__btn button:nth-child(2) {
             @include styleButton ($bg-button-3, $color-black-1, 10px 15px, none, none);
             font-weight: 800;
+            &:hover{
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
         }
     }
 }

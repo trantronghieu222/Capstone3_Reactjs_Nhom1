@@ -18,7 +18,11 @@
         }
 
         button {
-            @include styleButton ($bg-button-4, $color-white-1, 10px 25px, none, 50px)
+            @include styleButton ($bg-button-4, $color-white-1, 10px 25px, none, 50px);
+            &:hover{
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
         }
     }
 

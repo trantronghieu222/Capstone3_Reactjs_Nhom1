@@ -19,7 +19,7 @@ const Header = () => {
                                         <NavLink className="nav-link" to="search"><i class="fa fa-search"></i> Search</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">🛒(1)</a>
+                                        <NavLink className="nav-link" to="cart">🛒(1)</NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="login">Login</a>

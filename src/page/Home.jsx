@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CarouselShop from '../components/CarouselShop'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProductApi } from '../redux/reducers/ProductReducer';
 const Home = () => {
+  const { arrProd } = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+  // console.log(arrProd);
+  useEffect(() => {
+    dispatch(getAllProductApi());
+  }, [])
   return (
     <div>
       <CarouselShop></CarouselShop>
@@ -11,58 +18,25 @@ const Home = () => {
         </div>
         <div className="product container">
           <div className="row">
-            <div className="col-4">
-              <div className="product__item">
-                <div className="item__img"><img src="/images/image5.png" alt="" /></div>
-                <div className="item__content">
-                  <h5>Adidas Prophere</h5>
-                  <p>short descript ...</p>
-                </div>
-                <div className="item__btn">
-                  <button className='w-100'>Buy now</button>
-                  <button className='w-100'>85$</button>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="product__item">
-                <div className="item__img"><img src="/images/image5.png" alt="" /></div>
-                <div className="item__content">
-                  <h5>Adidas Prophere</h5>
-                  <p>short descript ...</p>
-                </div>
-                <div className="item__btn">
-                  <button className='w-100'>Buy now</button>
-                  <button className='w-100'>85$</button>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="product__item">
-                <div className="item__img"><img src="/images/image5.png" alt="" /></div>
-                <div className="item__content">
-                  <h5>Adidas Prophere</h5>
-                  <p>short descript ...</p>
-                </div>
-                <div className="item__btn">
-                  <button className='w-100'>Buy now</button>
-                  <button className='w-100'>85$</button>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="product__item">
-                <div className="item__img"><img src="/images/image5.png" alt="" /></div>
-                <div className="item__content">
-                  <h5>Adidas Prophere</h5>
-                  <p>short descript ...</p>
-                </div>
-                <div className="item__btn">
-                  <button className='w-100'>Buy now</button>
-                  <button className='w-100'>85$</button>
-                </div>
-              </div>
-            </div>
+            {
+              arrProd.map((prod, index) => {
+                return (
+                  <div className="col-4" key={index}>
+                    <div className="product__item">
+                      <div className="item__img"><img src={prod.image} alt="" /></div>
+                      <div className="item__content">
+                        <h5>{prod.name}</h5>
+                        <p>{prod.shortDescription}</p>
+                      </div>
+                      <div className="item__btn">
+                        <button className='w-100'>Buy now</button>
+                        <button className='w-100'>{prod.price}$</button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            }
           </div>
 
         </div>
