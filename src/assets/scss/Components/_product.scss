@@ -1,0 +1,40 @@
+.product{
+    padding: 20px 0 40px 0;
+    .product__item {
+        padding: 0;
+        margin: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+        .item__img img {
+            width: 100%;
+            padding: 50px;
+        }
+    
+        .item__content {
+            padding: 20px 10px;
+    
+            h5 {
+                font-size: 1.2rem;
+                padding: 5px 0;
+            }
+    
+            p {
+                color: $color-text-2;
+            }
+        }
+    
+        .item__btn {
+            display: flex;
+        }
+    
+        .item__btn button:nth-child(1) {
+            @include styleButton ($bg-button-2, $color-black-1, 10px 15px, none, none);
+            font-weight: 500;
+        }
+    
+        .item__btn button:nth-child(2) {
+            @include styleButton ($bg-button-3, $color-black-1, 10px 15px, none, none);
+            font-weight: 800;
+        }
+    }
+}

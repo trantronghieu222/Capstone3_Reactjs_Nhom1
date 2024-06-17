@@ -1,0 +1,20 @@
+.feature {
+    min-height: 700px;
+    background: $bg-color-1;
+    &__title {
+        background: linear-gradient(180deg, #F21299 0%, #1B02B5 100%);
+        width: 698px;
+        height: 74px;
+        top: 44px;
+        left: -4px;
+        gap: 0px;
+        opacity: 0px;
+
+        p {
+            font-size: 2rem;
+            color: $color-white-1;
+            line-height: 74px;
+            padding-left: 25px;
+        }
+    }
+}
