@@ -15,9 +15,9 @@ const initialState = {
             categories: "[{\"id\": \"VANS_CONVERSE\",\"category\":\"VANS_CONVERSE\"}]",
             relatedProducts: "[2,3,1]",
             feature: true,
-            image: "https://shop.cyberlearn.vn/images/vans-black-black.png"
+            image: "https://shop.cyberlearn.vn/images/vans-black-black.png",
         }
-    ]
+    ],
 }
 
 const ProductReducer = createSlice({
@@ -26,11 +26,11 @@ const ProductReducer = createSlice({
     reducers: {
         getProductApi: (state, action) => {
             state.arrProd = action.payload;
-        }
+        },
     }
 });
 
-export const { getProductApi } = ProductReducer.actions
+export const { getProductApi, addToCart } = ProductReducer.actions
 
 export default ProductReducer.reducer
 
@@ -51,7 +51,7 @@ export const getAllProductApi = () => {
     }
 }
 
-// 
+//
 // export const addStoreAsync = (newStrore) => {
 
 //     return async (dispatch) => {

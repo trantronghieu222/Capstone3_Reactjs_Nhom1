@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import CarouselShop from '../components/CarouselShop'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductApi } from '../redux/reducers/ProductReducer';
+import { NavLink } from 'react-router-dom';
 const Home = () => {
   const { arrProd } = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Home = () => {
                         <p>{prod.shortDescription}</p>
                       </div>
                       <div className="item__btn">
-                        <button className='w-100'>Buy now</button>
+                        <button className='w-100'><NavLink className='' to={`/prodDetail/${prod.id}`}>Buy Now</NavLink></button>
                         <button className='w-100'>{prod.price}$</button>
                       </div>
                     </div>

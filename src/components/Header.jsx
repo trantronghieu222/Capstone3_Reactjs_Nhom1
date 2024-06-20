@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 const Header = () => {
+    const quantityCart = useSelector(state => state.cartReducer.cart);
+    console.log(quantityCart)
     return (
         <div>
             <header>
@@ -16,13 +19,17 @@ const Header = () => {
                                 </ul>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="search"><i class="fa fa-search"></i> Search</NavLink>
+                                        <NavLink className="nav-link" to="search?k="><i class="fa fa-search"></i> Search</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="cart">🛒(1)</NavLink>
+                                        <NavLink className="nav-link" to="cart">🛒({
+                                            quantityCart.reduce((count, value) =>{
+                                                return count + value.quantity
+                                            }, 0)
+                                        })</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="login">Login</a>
+                                        <a className="nav-link" href="#">Login</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="#">Register</a>

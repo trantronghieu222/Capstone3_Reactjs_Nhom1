@@ -42,9 +42,13 @@
             font-weight: 400;
         }
 
+        .table-title th,
+        .table-item td{
+            text-align: center;
+        }
+        
         .table-title th:nth-child(8) {
             width: 200px;
-            text-align: center;
         }
 
         // Button Edit, delete

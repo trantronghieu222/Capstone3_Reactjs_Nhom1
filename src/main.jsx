@@ -16,16 +16,23 @@ import HeaderHome from './layout/HeaderHome'
 import Home from './page/Home'
 import Search from './page/Search'
 import Cart from './page/Cart'
+import ProductDetail from './page/ProductDetail'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <HistoryRouter history={navigateHistory}>
       <Routes>
         <Route path='' element={<HeaderHome></HeaderHome>}>
-          <Route index element={<Home></Home>}></Route>
+          <Route path='/' element={<Home></Home>}></Route>
           <Route path='home' element={<Home></Home>}></Route>
           <Route path='search' element={<Search></Search>}></Route>
+          {/* <Route path='search'>
+            <Route path=':?k=' element={<Search></Search>}></Route>
+          </Route> */}
           <Route path='cart' element={<Cart></Cart>}></Route>
+          <Route path='proddetail'>
+            <Route path=':id-product' element={<ProductDetail></ProductDetail>}></Route>
+          </Route>
         </Route>
       </Routes>
     </HistoryRouter>
