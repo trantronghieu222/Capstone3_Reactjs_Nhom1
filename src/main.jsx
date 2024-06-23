@@ -15,6 +15,10 @@ import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-ro
 import HeaderHome from './layout/HeaderHome'
 import Home from './page/Home'
 import Search from './page/Search'
+import Register from './page/Register'
+import Login from './page/Login'
+import UserInfor from './page/UserInfor'
+//Formik
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -23,7 +27,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='' element={<HeaderHome></HeaderHome>}>
           <Route index element={<Home></Home>}></Route>
           <Route path='home' element={<Home></Home>}></Route>
+          <Route path='userInfor' element={<UserInfor></UserInfor>}></Route>
           <Route path='search' element={<Search></Search>}></Route>
+          <Route path='register' element={<Register></Register>}></Route>
+          <Route path='login' element={<Login></Login>}></Route>
+          
         </Route>
       </Routes>
     </HistoryRouter>

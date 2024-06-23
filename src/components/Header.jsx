@@ -1,3 +1,4 @@
+import { isAction } from '@reduxjs/toolkit'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 const Header = () => {
@@ -22,11 +23,17 @@ const Header = () => {
                                         <a className="nav-link" href="#">🛒(1)</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="login">Login</a>
+                                        <NavLink className={({isActive}) => 
+                                        isActive ? 'nav-link active' : 'nav-link'} to="userInfor"><i class="fa fa-user"></i></NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Register</a>
+                                        <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="login">Login</NavLink>
                                     </li>
+                                    <li className="nav-item">
+                                        <NavLink className={({isActive}) => 
+                                        isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
+                                    </li>
+                                   
                                 </ul>
                             </div>
                         </div>
