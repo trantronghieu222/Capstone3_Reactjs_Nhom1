@@ -1,0 +1,86 @@
+.prodDetail {
+    padding: 80px 0;
+
+    &__img {
+        img {
+            width: 100%;
+            padding: 100px;
+        }
+    }
+
+    &__content {
+        h3 {
+            font-size: 1.875rem;
+            font-weight: 300;
+            padding-bottom: 10px;
+        }
+
+        .sizeTitle {
+            color: $color-text-3;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 10px 0;
+        }
+
+        .size-btn {
+            button {
+                margin-right: 10px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                @include styleButton($bg-button-7, $color-text-4, 5px 10px, 1px solid transparent, none);
+
+                &:hover {
+                    border: 1px solid $bg-button-4;
+                }
+            }
+        }
+
+        .prod-price {
+            color: $color-text-5;
+            font-size: 1.875rem;
+            padding: 10px 0;
+        }
+
+        .quantity-box {
+            button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.875rem;
+                @include styleButton(linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%), $bg-color-1, 0px, 1px solid transparent, none);
+
+                &:hover {
+                    border: 1px solid $bg-button-4;
+                }
+            }
+
+            span {
+                padding: 0 20px;
+                font-size: 1.875rem;
+            }
+        }
+
+        .btn-add-to-cart {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            @include styleButton(linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%), $color-text-6, 10px 20px, none, none);
+
+            &:hover {
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
+        }
+    }
+}
+
+.realateProduct {
+    background-color: $bg-color-1;
+    min-height: 400px;
+
+    .realateProduct-title {
+        text-align: center;
+        // padding: 50px 0;
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 48.41px;
+    }
+}

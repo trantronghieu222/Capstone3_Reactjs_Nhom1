@@ -1,0 +1,101 @@
+.cart {
+    min-height: 640px;
+
+    &__title {
+        padding: 50px 0;
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    &__content {
+        padding: 50px 0;
+        border-top: 1px solid $color-white-3;
+
+        // Button + =
+        .btn-plus,
+        .btn-minus {
+            @include styleButton($bg-button-4, $color-white-1, 5px 10px, none, 5px);
+            box-shadow: 0px 5px 5px 0px #00000033;
+            box-shadow: 0px 3px 14px 0px #0000001F;
+            box-shadow: 0px 8px 10px 0px #00000024;
+
+            &:hover {
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
+        }
+
+        // Quantity
+        .quantity-val {
+            display: inline-block;
+            width: 50px;
+            text-align: center;
+            background: $color-white-2;
+            margin: 0 10px;
+        }
+
+        // Table tr th td
+        .table-title th {
+            background-color: $color-white-2;
+            padding: 15px 10px;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .table-title th,
+        .table-item td{
+            text-align: center;
+        }
+        
+        .table-title th:nth-child(8) {
+            width: 200px;
+        }
+
+        // Button Edit, delete
+        .table-item td:nth-child(8) {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+
+            .btn-edit {
+                @include styleButton($bg-button-4, $color-white-1, 5px 15px, none, 5px);
+                box-shadow: 0px 5px 5px 0px #00000033;
+                box-shadow: 0px 3px 14px 0px #0000001F;
+                box-shadow: 0px 8px 10px 0px #00000024;
+
+                &:hover {
+                    opacity: 0.8;
+                    transition: all 0.3s;
+                }
+            }
+
+            .btn-del {
+                @include styleButton($bg-button-5, $color-white-1, 5px 15px, none, 5px);
+                box-shadow: 0px 5px 5px 0px #00000033;
+                box-shadow: 0px 3px 14px 0px #0000001F;
+                box-shadow: 0px 8px 10px 0px #00000024;
+
+                &:hover {
+                    opacity: 0.8;
+                    transition: all 0.3s;
+                }
+
+            }
+        }
+
+        // Button submit
+        .btn-submit {
+            float: right;
+            margin-top: 20px;
+            @include styleButton($bg-button-6, $color-white-1, 5px 15px, none, 5px);
+            box-shadow: 0px 5px 5px 0px #00000033;
+            box-shadow: 0px 3px 14px 0px #0000001F;
+            box-shadow: 0px 8px 10px 0px #00000024;
+
+            &:hover {
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
+        }
+    }
+}
