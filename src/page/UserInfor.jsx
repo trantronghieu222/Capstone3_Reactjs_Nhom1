@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const UserInfor = () => {
+  const {arrUser} = useSelector ( state => state.userReducer.arrUser);
+  console.log(arrUser);
   return (
-    <div>UserInfor</div>
+    <div className='container'>
+
+    </div>
   )
 }
 
