@@ -31,6 +31,7 @@
 // export default UserReducer.reducer
 
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
 
 const initialState = {
   arrUser: [
@@ -61,3 +62,13 @@ const UserReducer = createSlice({
 export const {settArrUserAction} = UserReducer.actions
 
 export default UserReducer.reducer
+
+
+//ActionAsync
+export const getAllUserActionAsync = async (dispatch) => {
+  const res = await axios.get ('https://apistore.cybersoft.edu.vn/api/Users/getAll')
+
+  const action = settArrUserAction(res.data.content)
+  dispatch(action)
+
+}
