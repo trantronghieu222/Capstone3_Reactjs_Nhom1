@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllProductApi } from '../redux/reducers/ProductReducer';
 import { useFormik } from 'formik';
-import { useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import _ from 'lodash';
 const Search = () => {
@@ -96,7 +94,7 @@ const Search = () => {
                                                     <p>{prod.shortDescription}</p>
                                                 </div>
                                                 <div className="item__btn">
-                                                    <button className='w-100'><a className='' href={`/prodDetail/${prod.id}`}>Buy Now</a></button>
+                                                    <button className='w-100'><NavLink className='' to={`/prodDetail/${prod.id}`}>Buy Now</NavLink></button>
                                                     <button className='w-100'>{prod.price}$</button>
                                                 </div>
                                             </div>

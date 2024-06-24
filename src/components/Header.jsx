@@ -1,7 +1,9 @@
 import { isAction } from '@reduxjs/toolkit'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Header = () => {
+    const quantityCart = useSelector(state => state.cartReducer.cart);
     return (
         <div>
             <header>
@@ -17,23 +19,27 @@ const Header = () => {
                                 </ul>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="search"><i class="fa fa-search"></i> Search</NavLink>
+                                        <NavLink className="nav-link" to="search?k="><i class="fa fa-search"></i> Search</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">🛒(1)</a>
+                                        <NavLink className="nav-link" to="cart">🛒({
+                                            quantityCart.reduce((count, value) => {
+                                                return count + value.quantity
+                                            }, 0)
+                                        })</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className={({isActive}) => 
-                                        isActive ? 'nav-link active' : 'nav-link'} to="userInfor"><i class="fa fa-user"></i></NavLink>
+                                        <NavLink className={({ isActive }) =>
+                                            isActive ? 'nav-link active' : 'nav-link'} to="userInfor"><i class="fa fa-user"></i></NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="login">Login</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to="login">Login</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className={({isActive}) => 
-                                        isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
+                                        <NavLink className={({ isActive }) =>
+                                            isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                         </div>
@@ -44,7 +50,7 @@ const Header = () => {
                         <div className="container-fluid">
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
-                                    <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="home">Home</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to="home">Home</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Men</a>
@@ -63,7 +69,7 @@ const Header = () => {
                     </nav>
                 </div>
             </header>
-        </div>     
+        </div>
     )
 }
 

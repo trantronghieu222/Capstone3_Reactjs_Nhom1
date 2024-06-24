@@ -18,6 +18,8 @@ import Search from './page/Search'
 import Register from './page/Register'
 import Login from './page/Login'
 import UserInfor from './page/UserInfor'
+import Cart from './page/Cart'
+import ProductDetail from './page/ProductDetail'
 //Formik
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -31,7 +33,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='search' element={<Search></Search>}></Route>
           <Route path='register' element={<Register></Register>}></Route>
           <Route path='login' element={<Login></Login>}></Route>
-          
+          <Route path='cart' element={<Cart></Cart>}></Route>
+          <Route path='proddetail'>
+            <Route path=':id-product' element={<ProductDetail></ProductDetail>}></Route>
+          </Route>
         </Route>
       </Routes>
     </HistoryRouter>

@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div>
             
-            <div className='container' style={{width: 500}} >
+            <div className='container loginPage' style={{width: 500}} >
                 <p className='py-3' style={{fontSize: 30}}>Login</p>
                 <div className="form-floating mb-3">
                     <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
