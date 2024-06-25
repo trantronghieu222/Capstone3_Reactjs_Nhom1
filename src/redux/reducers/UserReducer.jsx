@@ -65,10 +65,21 @@ export default UserReducer.reducer
 
 
 //ActionAsync
-export const getAllUserActionAsync = async (dispatch) => {
-  const res = await axios.get ('https://apistore.cybersoft.edu.vn/api/Users/getAll')
+export const getAllUserActionAsync = (keywork = '') => {
+  async (dispatch) => {
+    const res = await axios.get ('https://apistore.cybersoft.edu.vn/api/Users/getAll')
+  
+    const action = settArrUserAction(res.data.content)
+    dispatch(action)
+  
+  }
+} 
 
-  const action = settArrUserAction(res.data.content)
-  dispatch(action)
 
+export const signupActionAsync = (usRegis) => {
+
+  return async (dispatch) => {
+    const res = await axios.post('https://apistore.cybersoft.edu.vn/api/Users/signup',usRegis)
+    console.log(res.data.content);
+  }
 }
