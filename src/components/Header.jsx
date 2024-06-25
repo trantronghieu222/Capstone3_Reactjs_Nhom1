@@ -1,6 +1,7 @@
+import { isAction } from '@reduxjs/toolkit'
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Header = () => {
     // Lấy state login về
     // Cách 1
@@ -46,6 +47,11 @@ const Header = () => {
                                     <li className="nav-item">
                                         <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
                                     </li>
+                                    <li className="nav-item">
+                                        <NavLink className={({ isActive }) =>
+                                            isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -56,7 +62,7 @@ const Header = () => {
                         <div className="container-fluid">
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
-                                    <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="home">Home</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to="home">Home</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Men</a>
@@ -75,7 +81,7 @@ const Header = () => {
                     </nav>
                 </div>
             </header>
-        </div>     
+        </div>
     )
 }
 
