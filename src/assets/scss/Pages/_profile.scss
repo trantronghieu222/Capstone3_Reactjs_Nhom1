@@ -1,0 +1,30 @@
+.profile {
+    .profile-content {
+        padding-bottom: 100px;
+        .profile-user {
+            border-bottom: 1px solid $color-white-3;
+            .profile-img img{
+                width: 200;
+                min-height: 200px;
+            }
+            .btn-update-profile{
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+        .order-history{
+            h1{
+                padding: 20px 0;
+                font-size: 2rem;
+            }
+            .order__content{
+                .table-title th{
+                    background-color: $color-white-2;
+                    padding: 15px 10px;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

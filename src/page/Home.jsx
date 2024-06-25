@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <CarouselShop></CarouselShop>
       <section className='feature'>
-        <div className="feature__title">
+        <div className="title-2">
           <p>Product Feature</p>
         </div>
         <div className="product container">

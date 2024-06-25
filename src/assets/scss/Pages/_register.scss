@@ -1,0 +1,17 @@
+.register {
+    background-color: $bg-color-1;
+    .register-content {
+        padding: 30px 0;
+    }
+
+    .btn-register {
+        button {
+            @include styleButton($bg-button-4, $color-white-1, 10px 30px, none, 30px);
+
+            &:hover {
+                background: $color-text-5;
+                transition: all 0.3s;
+            }
+        }
+    }
+}

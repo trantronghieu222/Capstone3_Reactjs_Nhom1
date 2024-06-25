@@ -30,10 +30,6 @@ const CartReducer = createSlice({
             if (itemCart) {
                 itemCart.quantity += quantity
                 if (itemCart.quantity === 0) {
-                    // const itemIndex = state.cart.findIndex(p => p.id === action.payload.id);
-                    // if (itemIndex != -1) {
-                    //     state.cart.splice(itemIndex, 1);
-                    // }
                     itemCart.quantity = 1;
                 }
             }
@@ -48,10 +44,21 @@ const CartReducer = createSlice({
             }
             // Cách 2
             // state.cart = state.cart.filter(item => item.id !== action.payload.id);
-        }
+        },
+        // 
+        updateItems: (state, action) => {
+            state.cart = action.payload;
+        },
+        // clear cart
+        clearCart: (state) => {
+            state.cart = state.cart.filter(item => !item.selected);
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+        },
     }
 });
 
-export const { addToCart, changeQuantity, delProdCart } = CartReducer.actions
+export const { addToCart, changeQuantity, delProdCart, updateItems, clearCart } = CartReducer.actions
 
 export default CartReducer.reducer
+
+/* ---------------------------------- */

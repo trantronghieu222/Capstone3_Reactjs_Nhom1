@@ -2,8 +2,20 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 const Header = () => {
+    // Lấy state login về
+    // Cách 1
+    // const {state, dispatch} = useRedux()
+    const userLogin = useSelector((state) => state.UserReducer.userLogin)
+    // console.log(userLogin)
+    // Lấy mảng cart từ cartReducer
     const quantityCart = useSelector(state => state.cartReducer.cart);
-    console.log(quantityCart)
+    // console.log(quantityCart)
+    const renderLoginLink = () => {
+        if(userLogin){
+            return <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to={'/profile'}>Profile</NavLink>
+        }
+        return <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="login">Login</NavLink>
+    }
     return (
         <div>
             <header>
@@ -19,20 +31,20 @@ const Header = () => {
                                 </ul>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="search?k="><i class="fa fa-search"></i> Search</NavLink>
+                                        <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="search?k="><i class="fa fa-search"></i> Search</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="cart">🛒({
+                                        <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="cart">🛒({
                                             quantityCart.reduce((count, value) =>{
                                                 return count + value.quantity
                                             }, 0)
                                         })</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Login</a>
+                                        {renderLoginLink()}
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Register</a>
+                                        <NavLink className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} to="register">Register</NavLink>
                                     </li>
                                 </ul>
                             </div>

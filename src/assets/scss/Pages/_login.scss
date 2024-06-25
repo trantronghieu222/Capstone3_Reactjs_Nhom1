@@ -1,0 +1,56 @@
+.login {
+    background-color: $bg-color-1;
+    .login-content {
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+
+        .login-form {
+            width: 400px;
+
+            .form-submit {
+                display: flex;
+                justify-content: flex-end;
+
+                .link-regis {
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: $color-text-7;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: $color-text-5;
+                    }
+                }
+
+                .btn-login {
+                    @include styleButton($bg-button-4, $color-white-1, 10px 30px, none, 30px);
+
+                    &:hover {
+                        background: $color-text-5;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+
+            .login-fb{
+                i {
+                    font-size: 2rem;
+                    position: absolute;
+                    top: 12px;
+                    left: 35px;
+                    z-index: 1000;
+                }
+                .btn-login-fb{
+                    position: relative;
+                    width: 100%;
+                    @include styleButton($bg-button-8, $color-white-1, 15px 30px, none, 20px);
+                    &:hover {
+                        background: $color-text-5;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -6,8 +6,12 @@ header {
             .nav-link {
                 color: $color-white-1;
                 &:hover{
-                    opacity: 0.8;
+                    color: $color-text-5;
                     transition: all 0.3s;
+                }
+                &.active{
+                    color: $color-text-5;
+
                 }
             }
         }

@@ -17,6 +17,10 @@ import Home from './page/Home'
 import Search from './page/Search'
 import Cart from './page/Cart'
 import ProductDetail from './page/ProductDetail'
+import Login from './page/Login'
+import Register from './page/Register'
+import Profile from './page/Profile'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -26,9 +30,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='home' element={<Home></Home>}></Route>
           <Route path='search' element={<Search></Search>}></Route>
-          {/* <Route path='search'>
-            <Route path=':?k=' element={<Search></Search>}></Route>
-          </Route> */}
+          <Route path='login' element={<Login></Login>}></Route>
+          <Route path='register' element={<Register></Register>}></Route>
+          <Route path='profile' element={<Profile></Profile>}></Route>
           <Route path='cart' element={<Cart></Cart>}></Route>
           <Route path='proddetail'>
             <Route path=':id-product' element={<ProductDetail></ProductDetail>}></Route>

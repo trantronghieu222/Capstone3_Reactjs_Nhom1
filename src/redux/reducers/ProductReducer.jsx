@@ -50,14 +50,3 @@ export const getAllProductApi = () => {
         }
     }
 }
-
-//
-// export const addStoreAsync = (newStrore) => {
-
-//     return async (dispatch) => {
-//         const res = await axios.post('https://apistore.cybersoft.edu.vn/api/Store', newStrore)
-//         console.log(res.data.content);
-//         const actionAsyncGetStore  = getAllStoreApi();
-//         dispatch(actionAsyncGetStore);
-//     }
-// }
