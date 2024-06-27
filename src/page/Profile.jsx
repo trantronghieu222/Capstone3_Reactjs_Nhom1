@@ -7,9 +7,17 @@ const Profile = () => {
     // State chứa profile
     const [userProfile, setUserProfile] = useState({})
     const getProfileApi = async () => {
-        const token = getDataTextStorage(TOKEN_AUTHOR);
+        /*const token = getDataTextStorage(TOKEN_AUTHOR);
         const res = await httpStore.post('/api/Users/getProfile')
-        setUserProfile(res.data.content);
+        setUserProfile(res.data.content);*/
+        // console.log(res.data.content)
+
+        try {
+            const res = await httpStore.post('/api/Users/getProfile');
+            setUserProfile(res.data.content);
+        } catch (error) {
+            console.error('Error fetching profile:', error);
+        }
     }
 
     useEffect(() => {

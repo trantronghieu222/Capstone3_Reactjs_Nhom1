@@ -2816,6 +2816,28 @@ jsonwebtoken@8.5.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+jwa@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/jwa/-/jwa-1.4.1.tgz#743c32985cb9e98655530d53641b66c8645b039a"
+  integrity sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==
+  dependencies:
+    buffer-equal-constant-time "1.0.1"
+    ecdsa-sig-formatter "1.0.11"
+    safe-buffer "^5.0.1"
+
+jws@^3.2.1:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/jws/-/jws-3.2.2.tgz#001099f3639468c9414000e99995fa52fb478304"
+  integrity sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==
+  dependencies:
+    jwa "^1.4.1"
+    safe-buffer "^5.0.1"
+
+jwt-decode@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-4.0.0.tgz#2270352425fd413785b2faf11f6e755c5151bd4b"
+  integrity sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==
+
 keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz"
@@ -4776,7 +4798,7 @@ yocto-queue@^0.1.0:
 
 yub@^0.11.1:
   version "0.11.1"
-  resolved "https://registry.npmjs.org/yub/-/yub-0.11.1.tgz"
+  resolved "https://registry.yarnpkg.com/yub/-/yub-0.11.1.tgz#ac6d0ea65c146b7b097e7367ba7ea8ef4844562f"
   integrity sha512-kAq/VtEc9Avsosb9O7IYuTgQAaKFf6ekOXlUtzv8tie1Froq35wtPOrk6VI+43SLXGmBszC1D0A3gR/jW81neg==
 
 yup@^1.4.0:
