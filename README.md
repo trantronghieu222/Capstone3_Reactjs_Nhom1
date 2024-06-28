@@ -8,6 +8,7 @@
 - Cửa hàng bán giày sử dụng API 
 - Một số trang trong web: Trang chủ, Chi tiết sản phẩm, Tìm kiếm, Đăng nhập, Đăng ký, Trang xem thông tin User, Giỏ hàng
 
+## LINK DELOY WEB 
 <https://capstone3-reactjs-nhom1.vercel.app/>
 
 ## LINK YOUTUBE DEMO CÁC CHỨC NĂNG
