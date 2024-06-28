@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { signupActionAssync } from '../redux/reducers/UserReducer';
+import { signupActionAsync } from '../redux/reducers/UserReducer';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
             gender: 'true',
         },
         onSubmit: async (newRegis) => {
-            const actionAsync = signupActionAssync(newRegis);
+            const actionAsync = signupActionAsync(newRegis);
             await dispatch(actionAsync);
             alert('Đăng ký thành công!')
             navigate('/home');

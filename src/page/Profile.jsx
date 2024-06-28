@@ -1,24 +1,50 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { getDataTextStorage, TOKEN_AUTHOR } from '../util/utilFuntion'
 import { httpStore } from '../util/config'
+import { useFormik } from 'formik'
+import { updateProfileAsync } from '../redux/reducers/UserReducer'
+import { useDispatch } from 'react-redux'
 
 const Profile = () => {
+    const dispatch = useDispatch();
     // State chứa profile
     const [userProfile, setUserProfile] = useState({})
     const getProfileApi = async () => {
-        /*const token = getDataTextStorage(TOKEN_AUTHOR);
-        const res = await httpStore.post('/api/Users/getProfile')
-        setUserProfile(res.data.content);*/
-        // console.log(res.data.content)
-
         try {
             const res = await httpStore.post('/api/Users/getProfile');
             setUserProfile(res.data.content);
+            frmUpdateProfile.setValues(res.data.content);
         } catch (error) {
             console.error('Error fetching profile:', error);
         }
     }
+    
+    const filterProfile = (profile) => {
+        return {
+            id: profile.id,
+            email: profile.email,
+            password: profile.password,
+            name: profile.name,
+            gender: profile.gender,
+            phone: profile.phone
+        };
+    };
+
+    const frmUpdateProfile = useFormik({
+        initialValues: {
+            id: 0,
+            email: "",
+            password: "",
+            name: "",
+            gender: true,
+            phone: ""
+        },
+        onSubmit: async (valueProf) => {
+            const newProfile = filterProfile(valueProf)
+            const actionUpdateAsync = updateProfileAsync(newProfile);
+            await dispatch(actionUpdateAsync);
+            alert('Cập nhật thành công!')
+        }
+    })
 
     useEffect(() => {
         getProfileApi()
@@ -33,7 +59,7 @@ const Profile = () => {
                 <div className="container profile-content">
                     {/* Profile user */}
                     <div className="profile-user">
-                        <form action="">
+                        <form action="" onSubmit={frmUpdateProfile.handleSubmit}>
                             <div className="row">
                                 <div className="col-3 profile-img">
                                     <img src={userProfile.avatar} alt="" width={200} />
@@ -42,13 +68,13 @@ const Profile = () => {
                                     {/* Email */}
                                     <div className="mb-3">
                                         <label htmlFor className="form-label">Email</label>
-                                        <input type="email" name="email" className="form-control" aria-describedby="helpId" value={userProfile.email} />
+                                        <input type="email" name="email" className="form-control" aria-describedby="helpId" value={frmUpdateProfile.values.email} onInput={frmUpdateProfile.handleChange} />
                                         {/* <small id="helpId" className="text-muted">Help text</small> */}
                                     </div>
                                     {/* Phone */}
                                     <div className="mb-3">
                                         <label htmlFor className="form-label">Phone</label>
-                                        <input type="number" name="phone" className="form-control" aria-describedby="helpId" value={userProfile.phone} />
+                                        <input type="number" name="phone" className="form-control" aria-describedby="helpId" value={frmUpdateProfile.values.phone} onInput={frmUpdateProfile.handleChange} />
                                         {/* <small id="helpId" className="text-muted">Help text</small> */}
                                     </div>
                                 </div>
@@ -57,30 +83,46 @@ const Profile = () => {
                                     {/* Email */}
                                     <div className="mb-3">
                                         <label htmlFor className="form-label">Name</label>
-                                        <input type="text" name="name" className="form-control" aria-describedby="helpId" value={userProfile.name} />
+                                        <input type="text" name="name" className="form-control" aria-describedby="helpId" value={frmUpdateProfile.values.name} onInput={frmUpdateProfile.handleChange} />
                                         {/* <small id="helpId" className="text-muted">Help text</small> */}
                                     </div>
                                     {/* Phone */}
                                     <div className="mb-3">
                                         <label htmlFor className="form-label">Password</label>
-                                        <input type="password" name="password" className="form-control" aria-describedby="helpId" value={userProfile.password} />
+                                        <input type="password" name="password" className="form-control" aria-describedby="helpId" value={frmUpdateProfile.values.password} onInput={frmUpdateProfile.handleChange} />
                                         {/* <small id="helpId" className="text-muted">Help text</small> */}
                                     </div>
                                     {/* Gender */}
                                     <div className="register-gender d-flex py-4">
                                         <p className='pe-3'>Gender</p>
                                         <div class="form-check me-3">
-                                            <input className="form-check-input" type="radio" name="gender" id="male" checked={userProfile.gender === true} />
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="gender"
+                                                id="male" 
+                                                value={'true'}
+                                                checked={frmUpdateProfile.values.gender === true}
+                                                onChange={() => frmUpdateProfile.setFieldValue('gender', true)}
+                                            />
                                             <label className="form-check-label" for=""> Male </label>
                                         </div>
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="gender" id="female" checked={userProfile.gender === false} />
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="gender"
+                                                id="female"
+                                                value={'false'}
+                                                checked={frmUpdateProfile.values.gender === false}
+                                                onChange={() => frmUpdateProfile.setFieldValue('gender', false)}
+                                            />
                                             <label className="form-check-label" for=""> Female </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="btn-update-profile mb-3">
-                                    <button type="button" className="btn btn-primary">
+                                    <button type="submit" className="btn btn-primary">
                                         SUBMIT
                                     </button>
                                 </div>

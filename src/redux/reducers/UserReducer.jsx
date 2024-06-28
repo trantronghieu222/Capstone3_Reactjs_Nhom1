@@ -49,12 +49,21 @@ export const loginActionApi = (email, password) => {
   }
 }
 
-// 
-export const signupActionAssync = (usRegis) => {
+// Đăng ký tài khoản
+export const signupActionAsync = (usRegis) => {
   return async (dispatch) => {
     const res = await httpStore.post('/api/Users/signup', usRegis);
     // console.log(res.data.content)
     const  acition = setArrAction(res.data.content);
     dispatch(acition);
+  }
+}
+
+// Cập nhật thông tin tài khoản
+export const updateProfileAsync  = (usProf) => {
+  return async (dispatch) => {
+    const res = await httpStore.post('/api/Users/updateProfile', usProf)
+    const action = setArrAction(res.data.content);
+    dispatch(action);
   }
 }
